@@ -23,7 +23,7 @@
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .rm-exit-intent-popup.visible {
+    .rm-exit-intent-popup.rm-visible {
       transform: translateY(0) scale(1);
     }
 
@@ -85,7 +85,7 @@
         e.keyCode === 27; // user hits escape
 
       if (shouldExit) {
-        popup.classList.remove("visible");
+        popup.classList.remove("rm-visible");
       }
     };
 
@@ -96,7 +96,7 @@
 
       if (shouldShowExitIntent) {
         document.removeEventListener("mouseout", mouseEvent);
-        popup.classList.add("visible");
+        popup.classList.add("rm-visible");
         clearTimeout(popupTimeout)
       }
     };
@@ -104,7 +104,7 @@
     // Make popup appear after 30 seconds
     const popupTimeout = setTimeout(() => {
       document.removeEventListener("mouseout", mouseEvent);
-      popup.classList.add("visible");
+      popup.classList.add("rm-visible");
     }, {{ settings.popup_timeout }} * 1000);
 
     setTimeout(() => {
