@@ -1,17 +1,17 @@
 {%- if product.tags contains settings.popup_tag and settings.show_discount_popup -%}
 
-  <div class="exit-intent-popup">
-    <div class="popup-message">
+  <div class="rm-exit-intent-popup">
+    <div class="rm-popup-message">
       <img src="//cdn.shopify.com/s/files/1/1264/3521/files/OA_Logo_410x.png?v=1613509759" class="primary_logo ls-is-cached lazyloaded" alt="Outdoor Action">
-      <span class="popup-close">x</span>
+      <span class="rm-popup-close">x</span>
       <p>{{ settings.popup_discount_message }}</p>
       <p><strong>CODE: {{ settings.popup_discount_code }}</strong></p>
-      <p class="popup-message-details">{{ settings.popup_discount_details }}</p>
+      <p class="rm-popup-message-details">{{ settings.popup_discount_details }}</p>
     </div>
   </div>
 
   <style>
-    .exit-intent-popup {
+    .rm-exit-intent-popup {
       position: fixed;
       top: 0;
       left: 0;
@@ -23,11 +23,11 @@
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .exit-intent-popup.visible {
+    .rm-exit-intent-popup.visible {
       transform: translateY(0) scale(1);
     }
 
-    .popup-message {
+    .rm-popup-message {
       position: absolute;
       display: flex;
       justify-content: center;
@@ -42,24 +42,24 @@
     }
 
     @media only screen and (max-width: 600px) {
-     .popup-message {
+     .rm-popup-message {
         gap: 1rem;
     }
     }
 
-    .popup-message strong {
+    .rm-popup-message strong {
       font-size: 2rem;
     }
     
     /* Popup-specific styles */
-    .popup-message {
+    .rm-popup-message {
       text-align: center;
       background: #fff;
       padding: 2rem;
       border-radius: 0.5rem;
     }
 
-    .popup-close {
+    .rm-popup-close {
       position: absolute;
       top: 10px;
       right: 10px;
@@ -69,19 +69,19 @@
       font-size: 1.5rem;
     }
 
-    .popup-message-details {
+    .rm-popup-message-details {
       font-size: 0.75rem;
     }
   </style>
 
   <script>
-    const popup = document.querySelector(".exit-intent-popup");
+    const popup = document.querySelector(".rm-exit-intent-popup");
 
     // Close popup if escape key pressed or X icon is clicked
     const exit = (e) => {
       const shouldExit =
-        [...e.target.classList].includes("exit-intent-popup") || // user clicks on mask
-        e.target.className === "popup-close" || // user clicks on the close icon
+        [...e.target.classList].includes("rm-exit-intent-popup") || // user clicks on mask
+        e.target.className === "rm-popup-close" || // user clicks on the close icon
         e.keyCode === 27; // user hits escape
 
       if (shouldExit) {
