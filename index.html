@@ -76,6 +76,7 @@
 
   <script>
     const popup = document.querySelector(".rm-exit-intent-popup");
+    const popupDelay = {{ settings.popup_timeout }};
 
     // Close popup if escape key pressed or X icon is clicked
     const exit = (e) => {
@@ -105,7 +106,7 @@
     const popupTimeout = setTimeout(() => {
       document.removeEventListener("mouseout", mouseEvent);
       popup.classList.add("rm-visible");
-    }, {{ settings.popup_timeout }} * 1000);
+    }, popupDelay * 1000);
 
     setTimeout(() => {
       document.addEventListener("mouseout", mouseEvent);
