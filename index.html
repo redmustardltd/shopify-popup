@@ -2,14 +2,19 @@
 
   <div class="rm-exit-intent-popup">
     <div class="rm-popup-message">
+<!--    Popup image    -->
       <img src="//cdn.shopify.com/s/files/1/1264/3521/files/OA_Logo_410x.png?v=1613509759" class="primary_logo ls-is-cached lazyloaded" alt="Outdoor Action">
       <span class="rm-popup-close">x</span>
+<!--    Popup message     -->
       <p>{{ settings.popup_discount_message }}</p>
+<!--     Discount code   -->
       <p><strong>CODE: {{ settings.popup_discount_code }}</strong></p>
+<!--    Popup discount details    -->
       <p class="rm-popup-message-details">{{ settings.popup_discount_details }}</p>
     </div>
   </div>
 
+<!-- Styling -->
   <style>
     .rm-exit-intent-popup {
       position: fixed;
@@ -76,6 +81,7 @@
 
   <script>
     const popup = document.querySelector(".rm-exit-intent-popup");
+    // Popup delay variable
     const popupDelay = {{ settings.popup_timeout }};
 
     // Close popup if escape key pressed or X icon is clicked
