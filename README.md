@@ -1,10 +1,7 @@
-This code is for a discount popup that appears on a Shopify store when a user is about to leave the page. The popup is triggered either when the user's mouse cursor moves outside of the page (an `exit intent`), or after a certain amount of time has passed.
+This is a Shopify Liquid template that displays a discount popup on a product page. It's designed to show a discount message and code to users who are about to leave the page. The popup appears either when the user's mouse leaves the window (an `exit intent`), or after a certain amount of time specified in the `popup_timeout` setting.
 
-The code first checks if the product being viewed has a specific tag (specified in the `settings.popup_tag` variable) and if the `settings.show_discount_popup` variable is set to true. If both conditions are met, the code generates the HTML for the discount popup. The HTML includes an img element for the store's logo, a `close` icon, and a p element for the discount message, code, and details.
+The code first checks whether the product being viewed has a certain tag (specified in the `popup_tag` setting) and whether the `show_discount_popup` setting is true. If both of these conditions are met, the code displays a div element with the class `rm-exit-intent-popup`. This div contains the actual popup message, which includes an image, a message, a discount code, and details about the discount.
 
-The JavaScript listens for various events that could trigger the popup to appear. If the user's mouse cursor moves outside of the page (an `exit intent`), the script adds the `rm-visible` class to the popup element, causing it to appear on the page. If a certain amount of time has passed (specified in the `settings.popup_timeout` variable), the script adds the `rm-visible` class to the popup element after the specified timeout.
+The code also includes a script that listens for certain events and displays the popup when they occur. If the user's mouse leaves the window, the script adds the `rm-visible` class to the `rm-exit-intent-popup` div, which causes it to appear on the screen. The script also listens for the escape key being pressed or the close icon being clicked, and closes the popup if either of these events occur.
 
-The script also listens for the user to click on the `close` icon or press the escape key. If either of these events occurs, the script removes the `rm-visible` class from the popup element, causing it to disappear.
-
-Finally, the script adds an event listener for clicks on the page mask (the semi-transparent background behind the popup). If the user clicks on the mask, the `rm-visible` class is removed from the popup element, causing it to disappear.
-
+Finally, the script sets a timeout that displays the popup after a certain amount of time specified in the `popup_timeout` setting. If the user's mouse leaves the window before the timeout expires, the timeout is cancelled and the popup is displayed immediately.
